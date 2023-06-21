@@ -2,7 +2,6 @@ package com.driver.bookMyShow.Controllers;
 
 import com.driver.bookMyShow.Dtos.RequestDtos.TheaterEntryDto;
 import com.driver.bookMyShow.Dtos.RequestDtos.TheaterSeatEntryDto;
-import com.driver.bookMyShow.Repositories.TheaterRepository;
 import com.driver.bookMyShow.Services.TheaterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

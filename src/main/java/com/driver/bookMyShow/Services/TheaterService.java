@@ -12,7 +12,6 @@ import com.driver.bookMyShow.Transformers.TheaterTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,7 +29,7 @@ public class TheaterService {
         return "Theater has been saved Successfully";
     }
 
-    public String addTheaterSeat(TheaterSeatEntryDto entryDto) {
+    public String addTheaterSeat(TheaterSeatEntryDto entryDto) throws TheaterIsNotPresentOnThisAddress{
         if(theaterRepository.findByAddress(entryDto.getAddress()) == null) {
             throw new TheaterIsNotPresentOnThisAddress();
         }

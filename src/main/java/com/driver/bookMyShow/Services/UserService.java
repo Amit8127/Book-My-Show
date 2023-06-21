@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public String addUser(UserEntryDto userEntryDto) {
+    public String addUser(UserEntryDto userEntryDto) throws UserAlreadyExistsWithEmail{
         if(userRepository.findByEmailId(userEntryDto.getEmailId()) != null) {
             throw new UserAlreadyExistsWithEmail();
         }

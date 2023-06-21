@@ -1,7 +1,7 @@
 package com.driver.bookMyShow.Controllers;
 
-import com.driver.bookMyShow.Dtos.RequestDtos.UserEntryDto;
-import com.driver.bookMyShow.Services.UserService;
+import com.driver.bookMyShow.Dtos.RequestDtos.MovieEntryDto;
+import com.driver.bookMyShow.Services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,20 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/movie")
+public class MovieController {
 
     @Autowired
-    UserService userService;
+    private MovieService movieService;
 
     @PostMapping("/addNew")
-    public ResponseEntity<String> addNewUser(@RequestBody UserEntryDto userEntryDto) {
+    public ResponseEntity<String> addMovie(@RequestBody MovieEntryDto movieEntryDto) {
         try {
-            String result = userService.addUser(userEntryDto);
+            String result = movieService.addMovie(movieEntryDto);
             return new ResponseEntity<>(result, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
-
 }

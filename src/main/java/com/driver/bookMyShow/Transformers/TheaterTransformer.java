@@ -13,6 +13,4 @@ public class TheaterTransformer {
                 .build();
         return theater;
     }
-
-
 }

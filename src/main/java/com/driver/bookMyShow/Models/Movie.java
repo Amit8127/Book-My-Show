@@ -27,7 +27,7 @@ public class Movie {
     @Column(nullable = false)
     private String movieName;
 
-    private Double duration;
+    private Integer duration;
 
     @Column(scale = 2)
     private Double rating;
