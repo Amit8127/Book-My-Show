@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class ShowSeatEntryDto {
-    private Integer theaterId;
+    private Integer showId;
     private Integer priceOfPremiumSeat;
     private Integer priceOfClassicSeat;
 }
