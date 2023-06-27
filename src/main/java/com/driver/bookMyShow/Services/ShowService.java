@@ -2,6 +2,7 @@ package com.driver.bookMyShow.Services;
 
 import com.driver.bookMyShow.Dtos.RequestDtos.ShowEntryDto;
 import com.driver.bookMyShow.Dtos.RequestDtos.ShowSeatEntryDto;
+import com.driver.bookMyShow.Dtos.RequestDtos.ShowTimingsDto;
 import com.driver.bookMyShow.Enums.SeatType;
 import com.driver.bookMyShow.Exceptions.MovieDoesNotExists;
 import com.driver.bookMyShow.Exceptions.ShowDoesNotExists;
@@ -14,6 +15,8 @@ import com.driver.bookMyShow.Transformers.ShowTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,5 +91,17 @@ public class ShowService {
         showRepository.save(show);
 
         return "Show seats have been associated successfully";
+    }
+
+    public List<Time> showTimingsOnDate(ShowTimingsDto showTimingsDto) {
+        Date date = showTimingsDto.getDate();
+        Integer theaterId = showTimingsDto.getTheaterId();
+        Integer movieId = showTimingsDto.getMovieId();
+        return showRepository.getShowTimingsOnDate(date, theaterId, movieId);
+    }
+
+    public String movieHavingMostShows() {
+        Integer movieId = showRepository.getMostShowsMovie();
+        return movieRepository.findById(movieId).get().getMovieName();
     }
 }
