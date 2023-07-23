@@ -10,4 +10,9 @@ public class BookMyShowApplication {
 		SpringApplication.run(BookMyShowApplication.class, args);
 	}
 
+//TODO:
+//	3. Get count of unique locations of a theater
+//	4. Get the list of theaters Showing a particular time.
+//	6. Cancel Ticket
+//	8. rate movie Flop or Hit based on collection or ticketBooked
 }
